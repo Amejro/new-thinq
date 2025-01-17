@@ -45,6 +45,12 @@
 <br/>
 <br/>
 <br/>
+
+<!-- Buttons  -->
+<h1 class="text-black">============= Buttons =============</h1>
+<x-buttons.two-icons-btn name='Request Proposal' icon='assets/icons/lab_profile.png'/>
+
+
  <!-- two Column heading thumbnail -->
  <h1 class="text-black">============= Single thumbnail =============</h1>
 <x-thumb.two-column-heading>
@@ -58,6 +64,13 @@
 <!-- Thumb Clients  -->
 <h1 class="text-black">============= Thumb Clients =============</h1>
 <x-thumb.thumb-clients></x-thumb.thumb-clients>
+
+
+<h1 class="text-black">============= Country Banner =============</h1>
+<x-thumb.country_banner></x-thumb.country_banner>
+
+{{-- <h1 class="text-black">============= Solution & Process =============</h1>
+<x-thumb.solutions></x-thumb.solutions> --}}
 
 
 
