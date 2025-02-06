@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Customer;
+use App\Models\Industry;
 use Illuminate\Http\Request;
+use App\Models\ProductIndustry;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterUserController extends Controller
 {
@@ -20,7 +25,13 @@ class RegisterUserController extends Controller
      */
     public function create()
     {
-       return view("register");
+        $industries = Industry::all();
+
+        $product_industries = ProductIndustry::all();
+       return view("register",[
+        "industries"=> $industries,
+        "product_industries"=> $product_industries
+       ]);
     }
 
     /**
@@ -28,7 +39,23 @@ class RegisterUserController extends Controller
      */
     public function store(Request $request)
     {
-        dd( $request );
+
+$user = User::create([
+    "name"=> $request->name,
+    "email"=> $request->email,
+    "password"=> Hash::make($request->password),
+]);
+
+// if($user->id){
+//     $customer= Customer::create([
+
+//     ]);
+// }
+
+event(new Registered($user));
+
+
+
     }
 
     /**
